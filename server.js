@@ -5,7 +5,7 @@ const rateLimit = require("express-rate-limit");
 const session = require("express-session");
 const connectDB = require("./config/db");
 require("dotenv").config();
-
+const MongoStore = require("connect-mongo");
 const app = express();
 connectDB();
 
@@ -26,6 +26,7 @@ app.use(
     secret: process.env.JWT_SECRET || "MaoniinyuJWTpleaseChange",
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: process.env.DB_URI }),
     cookie: { secure: false },
   })
 );
