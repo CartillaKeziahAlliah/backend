@@ -1,3 +1,4 @@
+const { json } = require("express");
 const User = require("../models/User");
 
 exports.getProfile = async (req, res) => {
@@ -13,5 +14,15 @@ exports.getProfile = async (req, res) => {
   } catch (error) {
     console.error("Error fetching user profile:", error);
     res.status(500).json({ error: "Error fetching user profile" });
+  }
+};
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password"); // Exclude the password field from the response
+    return res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
