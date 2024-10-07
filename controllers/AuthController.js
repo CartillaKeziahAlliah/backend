@@ -1,9 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const { json } = require("express");
-const session = require("express-session");
-const { logout } = require("./AuthController");
 
 const JWT_SECRET = process.env.JWT_SECRET || "MaoniinyuJWTpleaseChange";
 

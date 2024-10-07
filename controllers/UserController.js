@@ -1,7 +1,4 @@
 const User = require("../models/User");
-const cloudinary = require("../config/cloudinary");
-const bycrypt = require("bcryptjs");
-
 
 exports.getProfile = async (req, res) => {
   try {
