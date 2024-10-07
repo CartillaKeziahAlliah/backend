@@ -5,7 +5,6 @@ const calendarSchema = new mongoose.Schema({
   event_date: { type: Date, required: true },
   event_time: { type: String },
   note: { type: String },
-  section: { type: mongoose.Schema.Types.ObjectId, ref: "Section" },
   student: { type: mongoose.Schema.Types.ObjectId, ref: "Student" },
 });
 
